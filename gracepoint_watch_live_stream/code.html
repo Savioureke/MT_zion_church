@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Watch - GracePoint Ministry Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Libre+Caslon+Text:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Custom scrollbar for horizontal scrolling areas */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed": "#241a00",
+                        "inverse-on-surface": "#f3f0ec",
+                        "tertiary-fixed-dim": "#c9c6c1",
+                        "primary-container": "#d4af37",
+                        "on-tertiary-fixed": "#1c1c19",
+                        "surface-container-low": "#f6f3ef",
+                        "secondary-container": "#e4e2e0",
+                        "surface-container-high": "#eae8e4",
+                        "surface-dim": "#dcdad6",
+                        "primary": "#735c00",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#554300",
+                        "tertiary": "#605e5b",
+                        "background": "#fcf9f5",
+                        "on-primary-fixed-variant": "#574500",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#e9c349",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#d0c5af",
+                        "secondary": "#5f5e5d",
+                        "surface-variant": "#e5e2de",
+                        "on-secondary": "#ffffff",
+                        "outline": "#7f7663",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-secondary-fixed-variant": "#474745",
+                        "secondary-fixed-dim": "#c8c6c4",
+                        "surface-container": "#f0ede9",
+                        "on-tertiary-fixed-variant": "#484743",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "tertiary-container": "#b5b2ae",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e5e2de",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1c1c1a",
+                        "on-background": "#1c1c1a",
+                        "surface-tint": "#735c00",
+                        "on-tertiary-container": "#464541",
+                        "primary-fixed": "#ffe088",
+                        "inverse-surface": "#31302e",
+                        "on-surface-variant": "#4d4635",
+                        "surface-bright": "#fcf9f5",
+                        "secondary-fixed": "#e4e2e0",
+                        "tertiary-fixed": "#e6e2dd",
+                        "on-secondary-container": "#656463",
+                        "surface": "#fcf9f5"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Hanken Grotesk"],
+                        "button": ["Hanken Grotesk"],
+                        "headline-lg": ["Libre Caslon Text"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Libre Caslon Text"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "display-lg": ["Libre Caslon Text"],
+                        "display-lg-mobile": ["Libre Caslon Text"]
+                    },
+                    fontSize: {
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "button": ["14px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "400" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.1em", fontWeight: "700" }],
+                        "display-lg": ["64px", { lineHeight: "72px", letterSpacing: "-0.02em", fontWeight: "400" }],
+                        "display-lg-mobile": ["40px", { lineHeight: "48px", letterSpacing: "-0.01em", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background antialiased font-body-md flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-on-background border-b border-outline-variant/20 dark:border-outline/20 sticky top-0 z-50 w-full transition-shadow duration-300" id="top-app-bar">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile">
+<!-- Brand -->
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tight" href="#">
+                GracePoint Hub
+            </a>
+<!-- Navigation Links (Desktop) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-button text-button text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Home</a>
+<a class="font-button text-button text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">About Us</a>
+<a class="font-button text-button text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Sermons</a>
+<a class="font-button text-button text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 transition-colors duration-200" href="#">Watch</a>
+<a class="font-button text-button text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Read</a>
+<a class="font-button text-button text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Resources</a>
+</nav>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4">
+<a class="hidden lg:inline-flex font-button text-button text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Growth Journey</a>
+<button class="hidden md:inline-flex items-center justify-center bg-primary text-on-primary font-button text-button px-6 py-2 rounded scale-95 hover:scale-100 transition-transform duration-150 ease-in-out">
+                    Give Your Life to Christ
+                </button>
+<button aria-label="Volunteer" class="text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="volunteer_activism">volunteer_activism</span>
+</button>
+<button aria-label="Account" class="text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+<!-- Mobile Menu Toggle -->
+<button aria-label="Menu" class="md:hidden text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Featured Video / Live Stream Hero -->
+<section class="relative w-full h-[716px] min-h-[500px] bg-inverse-surface flex items-center justify-center overflow-hidden">
+<!-- Cinematic Background Image -->
+<div class="absolute inset-0 bg-cover bg-center opacity-60" data-alt="A wide cinematic shot of a modern church stage during a vibrant worship session. Warm golden lights pierce through atmospheric haze, illuminating the musicians and a large screen displaying lyrics. The mood is transcendent, hopeful, and awe-inspiring, matching a premium sanctuary aesthetic. Deep shadows contrast with bright, intentional stage lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWSUmmqCmRdxhWL4smgc1aXy1sZemnyuiMw5iuvojQgwqMkzqkI7dSDcZxYfthZBy6Wbv_7SB7D_7CFcyWFcQfk7Jps2iVp_CeNHV85GpCWKOQwKWIlTCLUjzyDqJHAeX_MnXVHxT24xf12VrrsigBuv34Al6MRku5ZRSaus2OtIVO_aqpOKSOcapiJc28glXdfBSYwDSS7MLi0hmhlotliDVIhqcic34gTBBbEyOSAkjBUT7ZCudnuQ')"></div>
+<!-- Dark Gradient Overlay for text legibility -->
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/50 to-transparent"></div>
+<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-3xl flex flex-col items-center">
+<span class="font-label-caps text-label-caps text-primary-fixed uppercase tracking-widest mb-4 inline-block bg-inverse-surface/50 px-3 py-1 rounded-full border border-primary-fixed/30 backdrop-blur-sm">Live Now</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-tertiary mb-6 text-shadow-sm">Sunday Worship Experience</h1>
+<p class="font-body-lg text-body-lg text-inverse-on-surface mb-8 max-w-xl text-center mx-auto opacity-90">Join us as we explore the foundations of faith and community in today's gathering.</p>
+<!-- Play Button -->
+<button aria-label="Play Featured Video" class="group relative w-20 h-20 flex items-center justify-center rounded-full bg-primary-container text-on-primary-container hover:scale-105 transition-transform duration-300 shadow-lg">
+<span class="material-symbols-outlined text-4xl ml-1" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<!-- Ripple effect -->
+<span class="absolute inset-0 rounded-full border border-primary-container animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite] opacity-75"></span>
+</button>
+</div>
+</section>
+<!-- Search & Filter Bar -->
+<section class="bg-surface-container-low border-b border-outline-variant/30 py-6 sticky top-[73px] z-40 backdrop-blur-md bg-surface-container-low/90">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="relative w-full md:w-1/2 lg:w-1/3">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full bg-surface text-on-surface font-body-md text-body-md pl-12 pr-4 py-3 rounded-DEFAULT border border-outline-variant/50 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline/70" placeholder="Search sermons, series, or topics..." type="text"/>
+</div>
+<div class="flex items-center gap-2 w-full md:w-auto overflow-x-auto scrollbar-hide pb-2 md:pb-0">
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-primary text-primary font-button text-button bg-primary/5 hover:bg-primary/10 transition-colors">All</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant font-button text-button hover:border-primary hover:text-primary transition-colors">Sermons</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant font-button text-button hover:border-primary hover:text-primary transition-colors">Worship</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant font-button text-button hover:border-primary hover:text-primary transition-colors">Teachings</button>
+</div>
+</div>
+</section>
+<!-- Video Categories Sections -->
+<div class="max-w-container-max mx-auto py-16 px-margin-mobile md:px-margin-desktop flex flex-col gap-section-gap">
+<!-- Category: Recent Sermons -->
+<section>
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-2">Recent Sermons</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Catch up on the latest messages from our teaching team.</p>
+</div>
+<a class="hidden md:flex items-center gap-1 font-button text-button text-primary hover:text-primary-container transition-colors" href="#">
+                        View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Horizontal Scroll Container -->
+<div class="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0">
+<!-- Video Card 1 -->
+<div class="snap-start shrink-0 w-[280px] md:w-[320px] group cursor-pointer">
+<div class="relative w-full aspect-video bg-surface-variant rounded-lg overflow-hidden mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A medium shot of a pastor speaking passionately behind a wooden podium. The lighting is focused and dramatic, highlighting the speaker against a darker, softly blurred church background. The tone is engaging, serious, and deeply spiritual, reflecting a modern ministry setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAanxeIZIzBOVfZ_9Ry01zW-hC3qAC8KZSbYh9Qrb3no0Rdtl_umJYoY7GpGC_PzCoPEcnvDjn21fW_huuia3TV1jkQcoWWiUz79X-AO3OSsUp82CJkvplWsknUhkIjazP7bIv_SULdhe8KvH9uhXJMbWuza_N8XJU7vHliM0X2Q7qKHap86XD-MsQDrb5iABkGr7N-cvc2lFAzy9q00EyiOc4XV9TLyKd_1o_GmW0w1rY3_VafRiKQcA"/>
+<!-- Play Overlay -->
+<div class="absolute inset-0 bg-inverse-surface/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary-fixed" data-icon="play_circle" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<!-- Duration badge -->
+<div class="absolute bottom-2 right-2 bg-inverse-surface/80 text-on-tertiary font-label-caps text-label-caps px-2 py-1 rounded text-[10px] backdrop-blur-sm">45:20</div>
+</div>
+<h3 class="font-headline-md text-[20px] leading-[28px] text-on-background group-hover:text-primary transition-colors line-clamp-2 mb-1">The Power of Stillness in a Chaotic World</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant">Pastor David Chen • Oct 15, 2023</p>
+</div>
+<!-- Video Card 2 -->
+<div class="snap-start shrink-0 w-[280px] md:w-[320px] group cursor-pointer">
+<div class="relative w-full aspect-video bg-surface-variant rounded-lg overflow-hidden mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An expansive view of an attentive congregation viewed from the back, looking towards a brightly lit stage where a single speaker stands. The architecture features modern, clean lines with warm wood accents and soft, diffuse natural light filtering in. The atmosphere is peaceful and community-focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnPdt07iYS94NYRF5OoNdotiMzSOZ4CopioWnjpB_g9-bSlhd1lDIBu72G70AZx9XBb08OmfEWYEWnqO6RMOWPPVqiSR6bU9GdxzbgXXxOEwOJl8mOcaVvFpAKeA271v0_d7CzUfgpRm0-AA-4ui3POO9N3ifMzdZ75sn2PyzsOhMaBfN7unRaOFQ349qB8acaz8DZJMUyrsTkBZHPs_mrUgNmp9ilv81dEJMYZetQas7A2sHRRvOawg"/>
+<div class="absolute inset-0 bg-inverse-surface/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary-fixed" data-icon="play_circle" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<div class="absolute bottom-2 right-2 bg-inverse-surface/80 text-on-tertiary font-label-caps text-label-caps px-2 py-1 rounded text-[10px] backdrop-blur-sm">38:15</div>
+</div>
+<h3 class="font-headline-md text-[20px] leading-[28px] text-on-background group-hover:text-primary transition-colors line-clamp-2 mb-1">Building Foundations: Faith Under Fire</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant">Dr. Sarah Jenkins • Oct 08, 2023</p>
+</div>
+<!-- Video Card 3 -->
+<div class="snap-start shrink-0 w-[280px] md:w-[320px] group cursor-pointer">
+<div class="relative w-full aspect-video bg-surface-variant rounded-lg overflow-hidden mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close up image of hands holding an open bible on a rustic wooden table. Soft, golden hour light streams across the pages, highlighting the text. A cup of coffee rests slightly out of focus in the background. The image evokes study, reflection, and quiet devotion in a beautifully curated modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPY6BakFWY72UmxX4sAfv9SCFaO2gD6F1dapxS8SRpqZe9KmkgZYucZLAjLVgXmzHE9KV25XFxSgt1kkLpoxVwCASYljwMyjGLhkIvvadtgBUtdADNZxq92CZH2aSgREJ59t4ZTNZN9lzKddC5YC3OAcpwDGvug1n_nJtizhpOCgB5EHmaikqONIuVytK9x5x0Ab-0HwW0rfxLU5TWT_MNJc567a1dZG7YJuT0CulKejqJtRryGJnOGw"/>
+<div class="absolute inset-0 bg-inverse-surface/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary-fixed" data-icon="play_circle" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<div class="absolute bottom-2 right-2 bg-inverse-surface/80 text-on-tertiary font-label-caps text-label-caps px-2 py-1 rounded text-[10px] backdrop-blur-sm">42:50</div>
+</div>
+<h3 class="font-headline-md text-[20px] leading-[28px] text-on-background group-hover:text-primary transition-colors line-clamp-2 mb-1">Understanding Grace in the Modern Age</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant">Pastor David Chen • Oct 01, 2023</p>
+</div>
+<!-- Video Card 4 -->
+<div class="snap-start shrink-0 w-[280px] md:w-[320px] group cursor-pointer">
+<div class="relative w-full aspect-video bg-surface-variant rounded-lg overflow-hidden mb-4">
+<div class="absolute inset-0 bg-surface-container-high flex flex-col items-center justify-center border border-outline-variant/30">
+<span class="material-symbols-outlined text-outline text-3xl mb-2" data-icon="library_books">library_books</span>
+<span class="font-button text-button text-on-surface-variant">Browse Sermon Archive</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-on-background dark:bg-surface-container-lowest full-width border-t-0 mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<!-- Brand Column -->
+<div class="flex flex-col gap-4 col-span-1 md:col-span-1">
+<a class="font-headline-md text-headline-md text-surface-bright dark:text-on-background" href="#">GracePoint Hub</a>
+<p class="font-body-md text-body-md text-tertiary-fixed-dim/80 text-sm mt-4">
+                    © 2024 GracePoint Ministry Hub. All rights reserved.
+                </p>
+</div>
+<!-- Links Columns -->
+<div class="col-span-1 md:col-span-3 flex flex-wrap gap-x-12 gap-y-6 md:justify-end mt-8 md:mt-0">
+<a class="font-label-caps text-label-caps text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-opacity opacity-80 hover:opacity-100" href="#">Contact</a>
+<a class="font-label-caps text-label-caps text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-opacity opacity-80 hover:opacity-100" href="#">Sermons</a>
+<a class="font-label-caps text-label-caps text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-opacity opacity-80 hover:opacity-100" href="#">Events</a>
+<a class="font-label-caps text-label-caps text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-opacity opacity-80 hover:opacity-100" href="#">Resources</a>
+<a class="font-label-caps text-label-caps text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-opacity opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple scroll effect for TopAppBar shadow
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('top-app-bar');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-sm');
+                header.classList.replace('border-outline-variant/20', 'border-transparent');
+            } else {
+                header.classList.remove('shadow-sm');
+                header.classList.replace('border-transparent', 'border-outline-variant/20');
+            }
+        });
+    </script>
+</body></html>

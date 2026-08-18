@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Dashboard - GracePoint Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#fcf9f5",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#e4e2e0",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#554300",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "inverse-primary": "#e9c349",
+                        "primary": "#735c00",
+                        "surface-container-low": "#f6f3ef",
+                        "on-surface-variant": "#4d4635",
+                        "tertiary": "#605e5b",
+                        "on-primary-fixed": "#241a00",
+                        "surface-tint": "#735c00",
+                        "secondary-fixed": "#e4e2e0",
+                        "surface-container": "#f0ede9",
+                        "primary-fixed-dim": "#e9c349",
+                        "surface-container-highest": "#e5e2de",
+                        "inverse-surface": "#31302e",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#d0c5af",
+                        "primary-container": "#d4af37",
+                        "on-tertiary-fixed": "#1c1c19",
+                        "on-primary-fixed-variant": "#574500",
+                        "tertiary-container": "#b5b2ae",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2de",
+                        "on-secondary-container": "#656463",
+                        "on-secondary-fixed-variant": "#474745",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#484743",
+                        "surface-dim": "#dcdad6",
+                        "primary-fixed": "#ffe088",
+                        "on-tertiary-container": "#464541",
+                        "surface": "#fcf9f5",
+                        "secondary-fixed-dim": "#c8c6c4",
+                        "surface-container-high": "#eae8e4",
+                        "surface-bright": "#fcf9f5",
+                        "on-surface": "#1c1c1a",
+                        "outline": "#7f7663",
+                        "tertiary-fixed-dim": "#c9c6c1",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f3f0ec",
+                        "on-background": "#1c1c1a",
+                        "tertiary-fixed": "#e6e2dd",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#5f5e5d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "section-gap": "120px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Libre Caslon Text"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "headline-md": ["Libre Caslon Text"],
+                        "headline-lg": ["Libre Caslon Text"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-lg": ["Libre Caslon Text"],
+                        "button": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "button": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-on-background docked full-width top-0 border-b border-outline-variant/20 dark:border-outline/20 flat no shadows z-50 sticky">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+                GracePoint Hub
+            </div>
+<nav class="hidden md:flex gap-gutter items-center">
+<a class="font-button text-button text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 scale-95 duration-150 ease-in-out" href="#">Home</a>
+<a class="font-button text-button text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 scale-95 duration-150 ease-in-out" href="#">About Us</a>
+<a class="font-button text-button text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 scale-95 duration-150 ease-in-out" href="#">Sermons</a>
+<a class="font-button text-button text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 scale-95 duration-150 ease-in-out" href="#">Watch</a>
+<a class="font-button text-button text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 scale-95 duration-150 ease-in-out" href="#">Read</a>
+<a class="font-button text-button text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 scale-95 duration-150 ease-in-out" href="#">Resources</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center gap-2">
+<button class="bg-primary text-on-primary font-button text-button px-4 py-2 rounded scale-95 hover:scale-100 transition-transform duration-150 ease-in-out">
+                        Give Your Life to Christ
+                    </button>
+<button class="bg-transparent border border-on-surface-variant text-on-surface-variant font-button text-button px-4 py-2 rounded scale-95 hover:scale-100 transition-transform duration-150 ease-in-out">
+                        Growth Journey
+                    </button>
+</div>
+<div class="flex gap-2 text-on-surface-variant dark:text-tertiary-fixed-dim">
+<button class="scale-95 hover:scale-100 hover:text-primary transition-all duration-150 ease-in-out">
+<span class="material-symbols-outlined" data-icon="volunteer_activism">volunteer_activism</span>
+</button>
+<button class="scale-95 hover:scale-100 text-primary transition-all duration-150 ease-in-out">
+<span class="material-symbols-outlined" data-icon="account_circle" data-weight="fill">account_circle</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-24">
+<!-- Welcome Section -->
+<section class="mb-16 md:mb-24">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-4">
+                Welcome back, Sarah.
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                Here is a summary of your spiritual growth journey and recent activities. Continue where you left off or explore new resources.
+            </p>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-section-gap">
+<!-- Faith Journey (Spans 8 cols) -->
+<div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant/20 rounded-lg p-6 relative overflow-hidden group">
+<div class="absolute inset-0 z-0 opacity-10 mix-blend-multiply" data-alt="A subtle, abstract geometric pattern representing spiritual growth and expanding pathways in warm gold and stone tones on a light background. Soft focus, modern minimalist editorial style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVmjHgk2dLAAuUFVZQOCGaUwWOfYrwJdTc5LUxdMNnlulNOihXTTEUFy8L6qH-E1ezEjvqSRM18653uyRRUJziaWkjUAioZYsXsB9gWrrJ-VUZeXxVRJq5SJpGrtiosfzQgViqSHKEoYXry2V0YntOO_ZFs6c-vj4Vq5TDbWzOmE0i57pZ1ra_fQxL9qqek_3V1rrfHh37P3OCVyzPJUmZeOZ-mmMG0IjXWFczgun2AfN2y21Akq5o7w')"></div>
+<div class="relative z-10 flex flex-col h-full justify-between">
+<div>
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-md text-headline-md text-on-background">Faith Journey Overview</h2>
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">In Progress</span>
+</div>
+<!-- Progress Path -->
+<div class="relative py-4 pl-4 mb-8">
+<div class="absolute left-[23px] top-8 bottom-4 w-px bg-outline-variant/50"></div>
+<div class="flex items-start gap-4 mb-6 relative">
+<div class="w-4 h-4 rounded-full bg-primary flex-shrink-0 mt-1 z-10 relative"></div>
+<div>
+<h3 class="font-button text-button text-on-background">Foundations of Faith</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Completed • Oct 12</p>
+</div>
+</div>
+<div class="flex items-start gap-4 mb-6 relative">
+<div class="w-4 h-4 rounded-full border-2 border-primary bg-background flex-shrink-0 mt-1 z-10 relative"></div>
+<div>
+<h3 class="font-button text-button text-on-background">Understanding Grace</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Module 2 of 4</p>
+<div class="mt-4 bg-surface-container h-1 w-full max-w-md rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[50%]"></div>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-4 relative">
+<div class="w-4 h-4 rounded-full border border-outline bg-background flex-shrink-0 mt-1 z-10 relative"></div>
+<div>
+<h3 class="font-button text-button text-on-surface-variant">Living the Word</h3>
+<p class="font-body-md text-body-md text-outline">Upcoming</p>
+</div>
+</div>
+</div>
+</div>
+<button class="self-start bg-primary text-on-primary font-button text-button px-6 py-3 rounded scale-95 hover:scale-100 transition-transform duration-150 ease-in-out flex items-center gap-2 mt-4">
+                        Continue Learning
+                        <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Side Cards (Spans 4 cols) -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Saved Sermons -->
+<div class="bg-surface-container-low p-6 rounded-lg flex-grow">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-md text-headline-md text-on-background">Saved Sermons</h2>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="bookmark">bookmark</span>
+</div>
+<ul class="space-y-4">
+<li class="border-b border-outline-variant/30 pb-3 last:border-0 last:pb-0">
+<a class="group block" href="#">
+<h3 class="font-button text-button text-on-background group-hover:text-primary transition-colors">The Power of Stillness</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Pastor David • 45 mins</p>
+</a>
+</li>
+<li class="border-b border-outline-variant/30 pb-3 last:border-0 last:pb-0">
+<a class="group block" href="#">
+<h3 class="font-button text-button text-on-background group-hover:text-primary transition-colors">Community in Action</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Guest Speaker • 32 mins</p>
+</a>
+</li>
+</ul>
+</div>
+<!-- My Prayer Requests -->
+<div class="bg-surface-container-low p-6 rounded-lg flex-grow">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-md text-headline-md text-on-background">Prayer Requests</h2>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="folded_hands">folded_hands</span>
+</div>
+<div class="bg-background border border-outline-variant/20 rounded p-4 mb-4">
+<p class="font-body-md text-body-md text-on-surface-variant italic">"For my mother's health and upcoming surgery next week..."</p>
+<p class="font-label-caps text-label-caps text-outline mt-2 text-right">Submitted 2 days ago</p>
+</div>
+<button class="w-full bg-transparent border border-on-surface-variant text-on-surface-variant font-button text-button px-4 py-2 rounded hover:bg-surface-container-highest transition-colors">
+                        Add Request
+                    </button>
+</div>
+</div>
+</div>
+<!-- Recent Lessons & Downloads -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Recent Lessons Editorial Style -->
+<div class="group relative overflow-hidden bg-background">
+<div class="aspect-[4/3] w-full overflow-hidden mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="A high-quality, softly lit photograph of an open bible resting on a modern wooden desk next to a ceramic mug of tea. Morning light streams through a nearby window. Minimalist, calming aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvz3cClag32s0Tk1JTgoqd3KDQojq_CAdFtA8xzJbIcYSEuqbAFNB0XsqOtL0qXvjKphaHg3Z7yAnEJMjoUEU_s9keyr_WrAsNsXhR9y9ZuHMXfreAyMv-7-l5doAL73-fKIG-rZ5QlWOKKxiAJIdc9vcOCgLKcHhnUHddh6Br9VoMWWPRweQMB9p8jKc7fSUAYl-zbHfBuu9IhigJnm0wMqZBeaoL3yaO2UpbciotlwNqn4SgId95Ng"/>
+</div>
+<div class="pr-6">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase block mb-2">Recent Lesson</span>
+<h3 class="font-headline-lg text-headline-lg text-on-background mb-2">Finding Purpose in the Everyday</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Explore how routine moments can be transformed into opportunities for spiritual reflection.</p>
+<a class="font-button text-button text-primary hover:text-on-background transition-colors flex items-center gap-1" href="#">
+                        Read Lesson <span class="material-symbols-outlined text-[16px]" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+</div>
+<!-- Downloads List -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 p-8 flex flex-col justify-center">
+<h2 class="font-headline-md text-headline-md text-on-background mb-6">Recent Downloads</h2>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface-container-low hover:bg-surface-container transition-colors rounded">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="description">description</span>
+<div>
+<p class="font-button text-button text-on-background">Study Guide: Book of Romans</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">PDF • 2.4 MB</p>
+</div>
+</div>
+<button class="text-primary hover:text-on-background transition-colors">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low hover:bg-surface-container transition-colors rounded">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="headphones">headphones</span>
+<div>
+<p class="font-button text-button text-on-background">Morning Devotional Audio</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">MP3 • 15 mins</p>
+</div>
+</div>
+<button class="text-primary hover:text-on-background transition-colors">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+</div>
+<button class="mt-6 font-button text-button text-on-surface-variant hover:text-primary transition-colors text-left">
+                    View all downloads →
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-on-background dark:bg-surface-container-lowest full-width">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12 md:py-section-gap max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1 mb-8 md:mb-0">
+<div class="font-headline-md text-headline-md text-surface-bright dark:text-on-background mb-4">
+                    GracePoint Hub
+                </div>
+<p class="font-body-md text-body-md text-primary-fixed dark:text-primary opacity-80 text-sm">
+                    © 2024 GracePoint Ministry Hub. All rights reserved.
+                </p>
+</div>
+<div class="col-span-1 md:col-span-3 flex flex-wrap gap-x-8 gap-y-4 md:justify-end items-start">
+<a class="font-body-md text-body-md text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-opacity opacity-80 hover:opacity-100 transition-all" href="#">Contact</a>
+<a class="font-body-md text-body-md text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-opacity opacity-80 hover:opacity-100 transition-all" href="#">Sermons</a>
+<a class="font-body-md text-body-md text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-opacity opacity-80 hover:opacity-100 transition-all" href="#">Events</a>
+<a class="font-body-md text-body-md text-primary-fixed font-bold hover:text-primary-fixed transition-opacity opacity-80 hover:opacity-100 transition-all" href="#">Resources</a>
+<a class="font-body-md text-body-md text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-opacity opacity-80 hover:opacity-100 transition-all" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</body></html>

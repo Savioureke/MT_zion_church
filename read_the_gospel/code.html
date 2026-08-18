@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Read the Gospel - GracePoint Ministry Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#241a00",
+                    "inverse-on-surface": "#f3f0ec",
+                    "tertiary-fixed-dim": "#c9c6c1",
+                    "primary-container": "#d4af37",
+                    "on-tertiary-fixed": "#1c1c19",
+                    "surface-container-low": "#f6f3ef",
+                    "secondary-container": "#e4e2e0",
+                    "surface-container-high": "#eae8e4",
+                    "surface-dim": "#dcdad6",
+                    "primary": "#735c00",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#554300",
+                    "tertiary": "#605e5b",
+                    "background": "#fcf9f5",
+                    "on-primary-fixed-variant": "#574500",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#e9c349",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#d0c5af",
+                    "secondary": "#5f5e5d",
+                    "surface-variant": "#e5e2de",
+                    "on-secondary": "#ffffff",
+                    "outline": "#7f7663",
+                    "primary-fixed-dim": "#e9c349",
+                    "on-secondary-fixed-variant": "#474745",
+                    "secondary-fixed-dim": "#c8c6c4",
+                    "surface-container": "#f0ede9",
+                    "on-tertiary-fixed-variant": "#484743",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#1b1c1b",
+                    "tertiary-container": "#b5b2ae",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e5e2de",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#1c1c1a",
+                    "on-background": "#1c1c1a",
+                    "surface-tint": "#735c00",
+                    "on-tertiary-container": "#464541",
+                    "primary-fixed": "#ffe088",
+                    "inverse-surface": "#31302e",
+                    "on-surface-variant": "#4d4635",
+                    "surface-bright": "#fcf9f5",
+                    "secondary-fixed": "#e4e2e0",
+                    "tertiary-fixed": "#e6e2dd",
+                    "on-secondary-container": "#656463",
+                    "surface": "#fcf9f5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "unit": "8px",
+                    "section-gap": "120px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-lg": [
+                            "Hanken Grotesk"
+                    ],
+                    "button": [
+                            "Hanken Grotesk"
+                    ],
+                    "headline-lg": [
+                            "Libre Caslon Text"
+                    ],
+                    "body-md": [
+                            "Hanken Grotesk"
+                    ],
+                    "headline-md": [
+                            "Libre Caslon Text"
+                    ],
+                    "label-caps": [
+                            "Hanken Grotesk"
+                    ],
+                    "display-lg": [
+                            "Libre Caslon Text"
+                    ],
+                    "display-lg-mobile": [
+                            "Libre Caslon Text"
+                    ]
+            },
+            "fontSize": {
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "button": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "64px",
+                            {
+                                    "lineHeight": "72px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "40px",
+                            {
+                                    "lineHeight": "48px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 z-50 bg-background border-b border-outline-variant/20 flat no shadows">
+<div class="flex justify-between items-center w-full px-margin-desktop max-md:px-margin-mobile py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary">GracePoint Hub</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-button text-button text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Home</a>
+<a class="font-button text-button text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">About Us</a>
+<a class="font-button text-button text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Sermons</a>
+<a class="font-button text-button text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Watch</a>
+<a class="font-button text-button text-primary border-b-2 border-primary pb-1" href="#">Read</a>
+<a class="font-button text-button text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Resources</a>
+</nav>
+<div class="hidden lg:flex items-center gap-4">
+<button class="bg-primary text-on-primary font-button text-button px-6 py-2 rounded scale-95 duration-150 ease-in-out hover:bg-primary-fixed-dim hover:text-on-primary-fixed">Growth Journey</button>
+<button class="border border-primary text-primary font-button text-button px-6 py-2 rounded scale-95 duration-150 ease-in-out hover:bg-primary/10">Give Your Life to Christ</button>
+</div>
+<div class="flex items-center gap-4">
+<button aria-label="Volunteer Activism" class="text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="volunteer_activism">volunteer_activism</span>
+</button>
+<button aria-label="Account Circle" class="text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col w-full">
+<!-- Hero Section -->
+<section class="w-full pt-section-gap pb-12 px-margin-desktop max-md:px-margin-mobile max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="col-span-1 md:col-span-8 md:col-start-3 text-center flex flex-col gap-6">
+<h1 class="font-display-lg text-display-lg max-md:font-display-lg-mobile max-md:text-display-lg-mobile text-on-background">Read the Gospel</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Discover the Gospel and learn about Jesus Christ through structured teachings designed for deep reflection and understanding.</p>
+</div>
+</section>
+<!-- Teaching Topics Bento Grid -->
+<section class="w-full pb-section-gap px-margin-desktop max-md:px-margin-mobile max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Topic 1: Wide Card -->
+<article class="col-span-1 md:col-span-8 bg-surface-container-low rounded-lg p-8 md:p-12 border border-outline-variant/20 hover:border-primary/50 transition-colors duration-300 flex flex-col justify-between group relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-surface-container-low to-surface-container opacity-50 z-0"></div>
+<div class="relative z-10">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4 block">Foundations</span>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-4 group-hover:text-primary transition-colors">Understanding the Good News</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mb-8">Begin your journey by exploring the core message of Christianity. What is the 'Good News' and why does it matter today?</p>
+</div>
+<div class="relative z-10 mt-auto">
+<a class="inline-flex items-center gap-2 font-button text-button text-primary hover:text-on-primary-fixed transition-colors" href="#">
+                            Read Now <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Topic 2: Tall Card -->
+<article class="col-span-1 md:col-span-4 bg-surface-container-low rounded-lg border border-outline-variant/20 hover:border-primary/50 transition-colors duration-300 flex flex-col relative overflow-hidden group">
+<div class="h-48 w-full relative overflow-hidden bg-surface-variant">
+<img alt="Who is Jesus Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A serene, minimalist photograph of an open ancient book resting on a wooden lectern in a sunlit stone sanctuary. Soft, ethereal light streams through a tall window, illuminating the text. Warm, inviting atmosphere, high contrast between light and shadows. Deep charcoal and gold tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIt8j_tkx9sh96KCqZvwKMoGi2OwBIUDWtWuJtJebizXYTQMZh-1kNBkdSZlADXcwGg384fpGzHSAPTe7XXlbLppHEoXEDOA7b-IqVCxec6LqKZoh-CeH-9j7L6jUEN578hVJn9aiMUni9cQu1LZ8_carzGOFh3lSYK5Y0dKP_zW0kLMYV8X4WjoyAVkivBAbDnzLe-DA8pr0ivrTpRBKwg_OYBFwMgh8dDJrI9WtLS_AVVC9k2FnbFA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+</div>
+<div class="p-8 flex flex-col flex-grow justify-between relative z-10">
+<div>
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-2 block">Identity</span>
+<h2 class="font-headline-md text-headline-md text-on-background mb-4">Who is Jesus?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Examine the historical and theological evidence surrounding the life, death, and resurrection of Jesus of Nazareth.</p>
+</div>
+<a class="inline-flex items-center gap-2 font-button text-button text-primary hover:text-on-primary-fixed transition-colors mt-auto" href="#">
+                            Read Now <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Topic 3: Standard Card -->
+<article class="col-span-1 md:col-span-4 bg-surface-container-lowest rounded-lg p-8 border border-outline-variant/20 hover:border-primary/50 transition-colors duration-300 flex flex-col justify-between group shadow-sm hover:shadow-md">
+<div>
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase mb-2 block">The Human Condition</span>
+<h2 class="font-headline-md text-headline-md text-on-background mb-4">Why do we need Salvation?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">A deep dive into the concept of sin, separation from God, and the universal longing for redemption.</p>
+</div>
+<a class="inline-flex items-center gap-2 font-button text-button text-on-surface hover:text-primary transition-colors mt-auto" href="#">
+                        Read Now <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</article>
+<!-- Topic 4: Standard Card -->
+<article class="col-span-1 md:col-span-4 bg-surface-container-lowest rounded-lg p-8 border border-outline-variant/20 hover:border-primary/50 transition-colors duration-300 flex flex-col justify-between group shadow-sm hover:shadow-md">
+<div>
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase mb-2 block">Turning Point</span>
+<h2 class="font-headline-md text-headline-md text-on-background mb-4">What is Repentance?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Understand true biblical repentance—not just feeling sorry, but a fundamental change of mind and direction.</p>
+</div>
+<a class="inline-flex items-center gap-2 font-button text-button text-on-surface hover:text-primary transition-colors mt-auto" href="#">
+                        Read Now <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</article>
+<!-- Topic 5: Standard Card -->
+<article class="col-span-1 md:col-span-4 bg-surface-container-lowest rounded-lg p-8 border border-outline-variant/20 hover:border-primary/50 transition-colors duration-300 flex flex-col justify-between group shadow-sm hover:shadow-md">
+<div>
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase mb-2 block">Response</span>
+<h2 class="font-headline-md text-headline-md text-on-background mb-4">Faith in Christ</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Explore the nature of saving faith—what it means to trust in Christ's finished work on the cross.</p>
+</div>
+<a class="inline-flex items-center gap-2 font-button text-button text-on-surface hover:text-primary transition-colors mt-auto" href="#">
+                        Read Now <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</article>
+<!-- Topic 6: Wide Card Alt -->
+<article class="col-span-1 md:col-span-12 bg-primary text-on-primary rounded-lg border border-primary-fixed-dim/20 hover:border-primary-fixed transition-colors duration-300 flex flex-col md:flex-row overflow-hidden group">
+<div class="md:w-1/3 relative min-h-[250px] bg-primary-fixed-dim">
+<img alt="Living for Christ" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-80 group-hover:opacity-100 transition-opacity duration-500" data-alt="A striking minimal composition of a person walking along a brightly lit path leading towards a mountain peak at dawn. The scene is bathed in warm golden morning light against deep charcoal shadows. High contrast, inspiring, symbolizing a journey or living purposefully. Clean, modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMepI8z9oQ1Q1JBylJLG2CzPkWrmL1LMWj9YSxzbwILuG5gpU8zOH3kmVdbiCj5E2R4-uD8a1_CXxlCk-Q_wGIvOI2H2nl508qIb9m2k-6GHXOHW8Ke_14zJBD2a9i0AKgeVOen1grJnFUgWBgrLXSLTm0nqzsl1zXjKY_NX0meCllz2ZtQdPYtL4ZO3cqBE-z5J92640_lXOGOgvwAbrxu9fbuBzMMR4MC-eZ55A-IYYu0yjGtJ1VTQ"/>
+</div>
+<div class="p-8 md:p-12 md:w-2/3 flex flex-col justify-center relative z-10">
+<span class="font-label-caps text-label-caps text-primary-fixed tracking-widest uppercase mb-4 block">Application</span>
+<h2 class="font-headline-lg text-headline-lg text-surface-lowest mb-4">Living for Christ</h2>
+<p class="font-body-md text-body-md text-on-primary/90 max-w-2xl mb-8">How does the Gospel transform our daily lives? Discover practical teachings on discipleship, community, and purpose.</p>
+<a class="inline-flex items-center w-fit gap-2 font-button text-button bg-surface-lowest text-primary px-6 py-3 rounded hover:bg-surface-container transition-colors shadow-sm" href="#">
+                            Read Now <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-on-background dark:bg-surface-container-lowest full-width flat no shadows">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+<span class="font-headline-md text-headline-md text-surface-bright dark:text-on-background">GracePoint Hub</span>
+<p class="font-body-md text-body-md text-tertiary-fixed-dim/80">© 2024 GracePoint Ministry Hub. All rights reserved.</p>
+</div>
+<div class="col-span-1 md:col-span-3 flex flex-wrap gap-8 md:justify-end items-start">
+<a class="font-body-md text-body-md text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-opacity opacity-80 hover:opacity-100 transition-all" href="#">Contact</a>
+<a class="font-body-md text-body-md text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-opacity opacity-80 hover:opacity-100 transition-all" href="#">Sermons</a>
+<a class="font-body-md text-body-md text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-opacity opacity-80 hover:opacity-100 transition-all" href="#">Events</a>
+<a class="font-body-md text-body-md text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-opacity opacity-80 hover:opacity-100 transition-all" href="#">Resources</a>
+<a class="font-body-md text-body-md text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-opacity opacity-80 hover:opacity-100 transition-all" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</body></html>

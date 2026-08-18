@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GracePoint Hub - Admin Panel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&amp;family=Hanken+Grotesk:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-dim": "#dcdad6",
+                      "surface-container-low": "#f6f3ef",
+                      "on-secondary-container": "#656463",
+                      "on-tertiary-fixed-variant": "#484743",
+                      "on-secondary-fixed-variant": "#474745",
+                      "surface-container": "#f0ede9",
+                      "on-surface": "#1c1c1a",
+                      "on-primary": "#ffffff",
+                      "outline-variant": "#d0c5af",
+                      "on-tertiary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed": "#e4e2e0",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed-variant": "#574500",
+                      "primary-fixed-dim": "#e9c349",
+                      "on-tertiary-container": "#464541",
+                      "tertiary": "#605e5b",
+                      "inverse-primary": "#e9c349",
+                      "on-surface-variant": "#4d4635",
+                      "surface-container-highest": "#e5e2de",
+                      "background": "#fcf9f5",
+                      "secondary-fixed-dim": "#c8c6c4",
+                      "on-secondary-fixed": "#1b1c1b",
+                      "surface-tint": "#735c00",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#d4af37",
+                      "primary-fixed": "#ffe088",
+                      "tertiary-fixed-dim": "#c9c6c1",
+                      "outline": "#7f7663",
+                      "on-error": "#ffffff",
+                      "secondary": "#5f5e5d",
+                      "tertiary-fixed": "#e6e2dd",
+                      "surface-bright": "#fcf9f5",
+                      "inverse-on-surface": "#f3f0ec",
+                      "on-tertiary-fixed": "#1c1c19",
+                      "inverse-surface": "#31302e",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed": "#241a00",
+                      "secondary-container": "#e4e2e0",
+                      "on-primary-container": "#554300",
+                      "tertiary-container": "#b5b2ae",
+                      "surface-variant": "#e5e2de",
+                      "on-background": "#1c1c1a",
+                      "primary": "#735c00",
+                      "surface": "#fcf9f5",
+                      "error": "#ba1a1a",
+                      "surface-container-high": "#eae8e4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "section-gap": "120px",
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Libre Caslon Text"
+                      ],
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "display-lg-mobile": [
+                              "Libre Caslon Text"
+                      ],
+                      "label-caps": [
+                              "Hanken Grotesk"
+                      ],
+                      "button": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-md": [
+                              "Libre Caslon Text"
+                      ],
+                      "display-lg": [
+                              "Libre Caslon Text"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "button": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "72px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen flex overflow-hidden">
+<!-- Sidebar Navigation (Admin Variant) -->
+<aside class="w-64 bg-surface-container-lowest border-r border-outline-variant/20 flex flex-col h-full flex-shrink-0 z-20 hidden md:flex shadow-[4px_0_24px_rgba(0,0,0,0.02)]">
+<div class="p-6 border-b border-outline-variant/20">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">GracePoint Hub</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-1 tracking-widest text-[10px]">ADMINISTRATION</p>
+</div>
+<nav class="flex-1 overflow-y-auto py-4 px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary-container text-on-primary-container font-button text-button transition-colors" href="#">
+<span class="material-symbols-outlined icon-fill" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-button text-button" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+                Sermons
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-button text-button" href="#">
+<span class="material-symbols-outlined" data-icon="video_library">video_library</span>
+                Videos
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-button text-button" href="#">
+<span class="material-symbols-outlined" data-icon="folder">folder</span>
+                Resources
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-button text-button" href="#">
+<span class="material-symbols-outlined" data-icon="church">church</span>
+                Gospel Responses
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-button text-button" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+                Lessons
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-button text-button" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+                Events
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-button text-button" href="#">
+<span class="material-symbols-outlined" data-icon="folded_hands">folded_hands</span>
+                Prayer Requests
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-button text-button mt-4 border-t border-outline-variant/20 pt-4" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                Users
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-button text-button" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="p-4 border-t border-outline-variant/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<p class="font-button text-button text-on-surface">Admin User</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">Super Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-full overflow-hidden bg-background">
+<!-- Top App Bar (Mobile) / Header (Desktop) -->
+<header class="bg-surface-container-lowest border-b border-outline-variant/20 px-6 py-4 flex items-center justify-between flex-shrink-0">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="font-headline-md text-headline-md text-on-surface hidden md:block">Overview</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="pl-9 pr-4 py-2 bg-surface-container border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-sm font-body-md w-64 rounded-t-sm transition-colors" placeholder="Search resources, users..." type="text"/>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border border-surface-container-lowest"></span>
+</button>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-6 md:p-8">
+<div class="max-w-container-max mx-auto space-y-8">
+<!-- Quick Stats Bento Grid -->
+<section>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-4 tracking-widest">MINISTRY HEALTH METRICS</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">group</span>
+</div>
+<span class="text-xs font-button text-[#2E7D32] bg-[#E8F5E9] px-2 py-1 rounded">+12% this week</span>
+</div>
+<div>
+<p class="font-display-lg-mobile text-display-lg-mobile text-on-surface mb-1">1,248</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Active Members</p>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">folded_hands</span>
+</div>
+<span class="text-xs font-button text-[#2E7D32] bg-[#E8F5E9] px-2 py-1 rounded">8 new</span>
+</div>
+<div>
+<p class="font-display-lg-mobile text-display-lg-mobile text-on-surface mb-1">42</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Active Prayer Requests</p>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">favorite</span>
+</div>
+<span class="text-xs font-button text-primary bg-primary-container/20 px-2 py-1 rounded">Needs Follow-up</span>
+</div>
+<div>
+<p class="font-display-lg-mobile text-display-lg-mobile text-on-surface mb-1">15</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Salvation Responses</p>
+</div>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">play_circle</span>
+</div>
+</div>
+<div>
+<p class="font-display-lg-mobile text-display-lg-mobile text-on-surface mb-1">8.5k</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Sermon Plays</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Complex Content Section: Recent Content & Quick Actions -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Content Management Table (Spans 2 columns) -->
+<section class="lg:col-span-2">
+<div class="flex justify-between items-end mb-4">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant tracking-widest">RECENT CONTENT UPLOADS</h3>
+<button class="bg-primary text-on-primary px-4 py-2 rounded font-button text-button flex items-center gap-2 hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                                Upload New
+                            </button>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/20 bg-surface-container-lowest">
+<th class="py-3 px-4 font-label-caps text-label-caps text-on-surface-variant font-medium">Title</th>
+<th class="py-3 px-4 font-label-caps text-label-caps text-on-surface-variant font-medium">Type</th>
+<th class="py-3 px-4 font-label-caps text-label-caps text-on-surface-variant font-medium">Status</th>
+<th class="py-3 px-4 font-label-caps text-label-caps text-on-surface-variant font-medium">Date</th>
+<th class="py-3 px-4 font-label-caps text-label-caps text-on-surface-variant font-medium text-right">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container/50 transition-colors">
+<td class="py-3 px-4 font-body-md text-body-md text-on-surface">The Power of Grace</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 text-xs font-button text-on-surface-variant bg-surface-variant px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">video_file</span> Video
+                                            </span>
+</td>
+<td class="py-3 px-4">
+<span class="text-xs font-button text-[#2E7D32] flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#2E7D32]"></span> Published</span>
+</td>
+<td class="py-3 px-4 font-body-md text-sm text-on-surface-variant">Oct 24, 2024</td>
+<td class="py-3 px-4 text-right">
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container/50 transition-colors">
+<td class="py-3 px-4 font-body-md text-body-md text-on-surface">Study Guide: Romans 8</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 text-xs font-button text-on-surface-variant bg-surface-variant px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">picture_as_pdf</span> PDF
+                                            </span>
+</td>
+<td class="py-3 px-4">
+<span class="text-xs font-button text-[#2E7D32] flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#2E7D32]"></span> Published</span>
+</td>
+<td class="py-3 px-4 font-body-md text-sm text-on-surface-variant">Oct 22, 2024</td>
+<td class="py-3 px-4 text-right">
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="py-3 px-4 font-body-md text-body-md text-on-surface">Sunday Service Audio</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 text-xs font-button text-on-surface-variant bg-surface-variant px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">audio_file</span> Audio
+                                            </span>
+</td>
+<td class="py-3 px-4">
+<span class="text-xs font-button text-[#F57C00] flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#F57C00]"></span> Draft</span>
+</td>
+<td class="py-3 px-4 font-body-md text-sm text-on-surface-variant">Oct 20, 2024</td>
+<td class="py-3 px-4 text-right">
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Urgent Actions & Notifications -->
+<section>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-4 tracking-widest">ATTENTION NEEDED</h3>
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-5 space-y-4">
+<!-- Action Item -->
+<div class="flex gap-4 items-start pb-4 border-b border-outline-variant/10 last:border-0 last:pb-0">
+<div class="w-8 h-8 rounded-full bg-primary-container/30 flex items-center justify-center text-primary mt-1 flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</div>
+<div>
+<p class="font-button text-button text-on-surface">3 New Salvation Responses</p>
+<p class="font-body-md text-sm text-on-surface-variant mt-1">Require pastoral follow-up from Sunday's service.</p>
+<button class="text-primary font-button text-sm mt-2 hover:underline">View responses</button>
+</div>
+</div>
+<!-- Action Item -->
+<div class="flex gap-4 items-start pb-4 border-b border-outline-variant/10 last:border-0 last:pb-0">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant mt-1 flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">folded_hands</span>
+</div>
+<div>
+<p class="font-button text-button text-on-surface">Urgent Prayer Request</p>
+<p class="font-body-md text-sm text-on-surface-variant mt-1">Submitted by Sarah M. regarding upcoming surgery.</p>
+<button class="text-primary font-button text-sm mt-2 hover:underline">Review request</button>
+</div>
+</div>
+<!-- Action Item -->
+<div class="flex gap-4 items-start">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant mt-1 flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">event</span>
+</div>
+<div>
+<p class="font-button text-button text-on-surface">Event Approval Pending</p>
+<p class="font-body-md text-sm text-on-surface-variant mt-1">Youth Ministry Retreat requires final sign-off.</p>
+<button class="text-primary font-button text-sm mt-2 hover:underline">Review event</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+</body></html>

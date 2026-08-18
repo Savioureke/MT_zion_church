@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GracePoint Ministry Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#1c1c1a",
+                      "surface-bright": "#fcf9f5",
+                      "background": "#fcf9f5",
+                      "outline-variant": "#d0c5af",
+                      "on-surface-variant": "#4d4635",
+                      "on-primary-fixed": "#241a00",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e5e2de",
+                      "tertiary-container": "#b5b2ae",
+                      "primary-fixed-dim": "#e9c349",
+                      "surface-container-highest": "#e5e2de",
+                      "on-error-container": "#93000a",
+                      "primary-fixed": "#ffe088",
+                      "secondary-container": "#e4e2e0",
+                      "on-tertiary-fixed": "#1c1c19",
+                      "on-primary-fixed-variant": "#574500",
+                      "primary": "#735c00",
+                      "on-primary-container": "#554300",
+                      "on-secondary-container": "#656463",
+                      "secondary-fixed-dim": "#c8c6c4",
+                      "on-secondary-fixed": "#1b1c1b",
+                      "surface-container-low": "#f6f3ef",
+                      "tertiary": "#605e5b",
+                      "surface-container": "#f0ede9",
+                      "on-secondary-fixed-variant": "#474745",
+                      "on-surface": "#1c1c1a",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed-variant": "#484743",
+                      "tertiary-fixed": "#e6e2dd",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#dcdad6",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#c9c6c1",
+                      "outline": "#7f7663",
+                      "surface-tint": "#735c00",
+                      "primary-container": "#d4af37",
+                      "surface-container-high": "#eae8e4",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-container": "#464541",
+                      "secondary": "#5f5e5d",
+                      "surface": "#fcf9f5",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-primary": "#e9c349",
+                      "inverse-surface": "#31302e",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#f3f0ec",
+                      "secondary-fixed": "#e4e2e0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "container-max": "1280px",
+                      "section-gap": "120px",
+                      "margin-desktop": "64px",
+                      "unit": "8px",
+                      "gutter": "24px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Libre Caslon Text"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "button": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-md": [
+                              "Libre Caslon Text"
+                      ],
+                      "display-lg-mobile": [
+                              "Libre Caslon Text"
+                      ],
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "display-lg": [
+                              "Libre Caslon Text"
+                      ],
+                      "label-caps": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "button": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "72px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-lg antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-on-background border-b border-outline-variant/20 dark:border-outline/20 w-full z-50 sticky top-0">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<!-- Brand -->
+<a class="flex items-center gap-2 group scale-95 duration-150 ease-in-out hover:scale-100" href="#">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim text-[28px]" style="font-variation-settings: 'FILL' 1;">church</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">GracePoint Hub</span>
+</a>
+<!-- Navigation Links (Desktop) -->
+<nav class="hidden lg:flex items-center gap-6">
+<a class="font-button text-button text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1" href="#">Home</a>
+<a class="font-button text-button text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">About Us</a>
+<a class="font-button text-button text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Sermons</a>
+<a class="font-button text-button text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Watch</a>
+<a class="font-button text-button text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Read</a>
+<a class="font-button text-button text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Resources</a>
+</nav>
+<!-- Actions -->
+<div class="hidden md:flex items-center gap-4">
+<a class="font-button text-button text-primary hover:text-primary/80 transition-colors duration-200" href="#">Growth Journey</a>
+<a class="bg-primary text-on-primary font-button text-button px-6 py-2.5 rounded hover:bg-primary/90 transition-colors duration-200" href="#">Give Your Life to Christ</a>
+<div class="flex items-center gap-2 border-l border-outline-variant/30 pl-4 ml-2">
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200 scale-95 duration-150 ease-in-out">
+<span class="material-symbols-outlined">volunteer_activism</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200 scale-95 duration-150 ease-in-out">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="lg:hidden text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative w-full h-[85vh] min-h-[600px] flex flex-col justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center absolute inset-0" data-alt="A breathtaking, wide-angle cinematic shot of glowing sunset rays piercing through dramatic mountain peaks, casting warm golden light across a serene valley. The aesthetic is deeply spiritual, modern, and inspiring, utilizing high-contrast editorial lighting and warm tones to evoke hope and sanctuary." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC5LL5EN7ljKpG4rwkvgPt66ep8y_9FAoBMNBcLdbxhvTR5YYW6FVWlPgdiuLc_4IWeFj6runp-N8n_i2D11byj0SvpJfQd-rX9-5WoL6St8Ap9n22nj7TDEYmxw5Tf3OvF4WHSqYv4drySfdtddLPfY4YIwRBYX5DEzX0m1LYjCqKyn_Nlmupb3uDECDRgOar3__zcu4ky0aLbUOOKSIi76-6UwBq11R17dNoTa4l6Hguv-IxnKTwXqQ')"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-on-background/90 via-on-background/70 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent h-1/3 bottom-0"></div>
+</div>
+<div class="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="col-span-1 md:col-span-8 lg:col-span-6 flex flex-col gap-6">
+<div class="flex items-center gap-3">
+<span class="w-12 h-px bg-primary-container"></span>
+<span class="font-label-caps text-label-caps text-primary-fixed uppercase tracking-[0.2em]">Welcome to GracePoint</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-surface-bright leading-tight">
+                        Faith. Family.<br/>Community.
+                    </h1>
+<p class="font-body-lg text-body-lg text-surface-variant/90 max-w-md">
+                        Join us this Sunday as we gather to worship, grow together, and belong to something bigger. A place to know Christ, grow in faith and serve others.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 mt-4">
+<a class="bg-primary-container text-on-primary-container font-button text-button px-8 py-3.5 rounded text-center hover:bg-primary-container/90 transition-colors shadow-lg shadow-on-background/20" href="#">
+                            Start Your Journey
+                        </a>
+<a class="bg-transparent border border-surface-bright text-surface-bright font-button text-button px-8 py-3.5 rounded text-center hover:bg-surface-bright/10 transition-colors flex items-center justify-center gap-2" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+                            Watch Sermon
+                        </a>
+</div>
+</div>
+</div>
+<!-- Service Times Pill -->
+<div class="absolute top-8 right-margin-desktop hidden lg:flex bg-on-background/80 backdrop-blur-md border border-primary/30 rounded-full px-6 py-3 items-center gap-4 z-20">
+<span class="font-label-caps text-label-caps text-primary-fixed">SUNDAYS</span>
+<span class="font-headline-md text-[20px] text-surface-bright">9:00 &amp; 11:00 AM</span>
+</div>
+</section>
+<!-- Quick Access Bar -->
+<section class="w-full bg-surface-container-low border-b border-outline-variant/30 py-8 relative z-20 -mt-8">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 divide-x-0 md:divide-x divide-outline-variant/30">
+<a class="flex flex-col items-center justify-center gap-3 group px-4" href="#">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-primary text-[24px]">headphones</span>
+</div>
+<span class="font-button text-button text-on-surface-variant group-hover:text-primary transition-colors">Listen</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-3 group px-4" href="#">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-primary text-[24px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<span class="font-button text-button text-on-surface-variant group-hover:text-primary transition-colors">Watch</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-3 group px-4" href="#">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-primary text-[24px]" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+</div>
+<span class="font-button text-button text-on-surface-variant group-hover:text-primary transition-colors">Read</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-3 group px-4" href="#">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-primary text-[24px]">download</span>
+</div>
+<span class="font-button text-button text-on-surface-variant group-hover:text-primary transition-colors">Download</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Our Story / Rooted in Faith -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-5 flex flex-col gap-6">
+<span class="font-label-caps text-label-caps text-primary tracking-[0.15em] uppercase">Our Story</span>
+<h2 class="font-headline-lg text-headline-lg text-on-background">Rooted in Faith,<br/>Growing in Grace</h2>
+<p class="font-body-md text-body-md text-on-surface-variant/80">
+                        For over two decades, GracePoint has been a home for people seeking real community and a genuine relationship with God. What began as a small gathering in a living room has grown into a family that welcomes everyone, exactly as they are.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant/80">
+                        We believe church isn't a building — it's a people. Every week we gather to worship, learn from scripture, and support one another through life's biggest moments, big and small.
+                    </p>
+<div class="flex gap-8 mt-4">
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-on-background flex items-center justify-center">
+<span class="material-symbols-outlined text-surface-bright text-[20px]" style="font-variation-settings: 'FILL' 1;">church</span>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant">Faith</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-on-background flex items-center justify-center">
+<span class="material-symbols-outlined text-surface-bright text-[20px]" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant">Family</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-on-background flex items-center justify-center">
+<span class="material-symbols-outlined text-surface-bright text-[20px]" style="font-variation-settings: 'FILL' 1;">my_location</span>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant">Purpose</span>
+</div>
+</div>
+<div class="mt-4">
+<a class="inline-block bg-primary-container text-on-primary-container font-button text-button px-8 py-3 rounded hover:bg-primary-container/90 transition-colors" href="#">
+                            Meet Our Team
+                        </a>
+</div>
+</div>
+<div class="lg:col-span-6 lg:col-start-7 mt-12 lg:mt-0 relative">
+<div class="aspect-[4/5] w-full rounded-lg overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="A beautifully lit, high-quality photograph of a diverse family (mother, father, young son) in a church setting, hands raised in worship and prayer. The lighting is warm and golden, evoking a profound sense of spiritual connection and community." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRvui1myH_iYOEhIY8lE8blZx5gZSrLimPdlqzqnEFHNeTGB054opAhw6Zq0v0V6AaJ51QD0AjmLr_V3R3AlxwZKbk-pvEZ6ekXH_YypsU9XIECwk81cm2sW6vnBUbHUeelDqR5kjPCIfaMGphEXI7lU1TMSKSpLUlbr7aSpr2Vq3qdAhl0l7BbxvsHTUywJzbXu2olQnx1I-pF0HdBFHDRhOKQUX3hd3Ij9gnVgcHTOeAiCoWeYKvAA')"></div>
+</div>
+<!-- Decorative element -->
+<div class="absolute -bottom-6 -left-6 w-48 h-48 bg-surface-container-low rounded-lg -z-10 hidden md:block border border-outline-variant/30"></div>
+</div>
+</div>
+</section>
+<!-- Service Times & Schedule (Dark gradient section) -->
+<section class="py-section-gap w-full relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-b from-on-background via-on-background to-[#2a2418] z-0"></div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center flex flex-col items-center mb-16">
+<span class="font-label-caps text-label-caps text-primary-fixed tracking-[0.15em] uppercase mb-4">Join Us</span>
+<h2 class="font-headline-lg text-headline-lg text-surface-bright mb-4">Service Times &amp; Schedule</h2>
+<p class="font-body-md text-body-md text-surface-variant/80 max-w-2xl">
+                        Wherever you are in life, there's a service for you. Arrive a little early for coffee and conversation in the lobby — we'd love to meet you.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface rounded-lg p-8 hover:-translate-y-1 transition-transform duration-300 shadow-xl shadow-black/20">
+<div class="w-12 h-12 bg-on-background rounded flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary-fixed">light_mode</span>
+</div>
+<h3 class="font-button text-[16px] text-on-background mb-1">Sunday Worship</h3>
+<p class="font-headline-md text-[20px] text-primary mb-4">9:00 &amp; 11:00 AM</p>
+<p class="font-body-md text-[14px] text-on-surface-variant/80 leading-relaxed">
+                            Main Sanctuary — join us for worship, teaching, and communion. Doors open thirty minutes early for coffee and fellowship.
+                        </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface rounded-lg p-8 hover:-translate-y-1 transition-transform duration-300 shadow-xl shadow-black/20">
+<div class="w-12 h-12 bg-on-background rounded flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary-fixed">menu_book</span>
+</div>
+<h3 class="font-button text-[16px] text-on-background mb-1">Bible Study</h3>
+<p class="font-headline-md text-[20px] text-primary mb-4">Wed • 7:00 PM</p>
+<p class="font-body-md text-[14px] text-on-surface-variant/80 leading-relaxed">
+                            Fellowship Hall — a relaxed midweek gathering to dig deeper into scripture and pray for one another.
+                        </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface rounded-lg p-8 hover:-translate-y-1 transition-transform duration-300 shadow-xl shadow-black/20">
+<div class="w-12 h-12 bg-on-background rounded flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary-fixed">groups</span>
+</div>
+<h3 class="font-button text-[16px] text-on-background mb-1">Youth Group</h3>
+<p class="font-headline-md text-[20px] text-primary mb-4">Fri • 6:30 PM</p>
+<p class="font-body-md text-[14px] text-on-surface-variant/80 leading-relaxed">
+                            Youth Center — a high-energy night of games, worship, and honest conversation for teens.
+                        </p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface rounded-lg p-8 hover:-translate-y-1 transition-transform duration-300 shadow-xl shadow-black/20">
+<div class="w-12 h-12 bg-on-background rounded flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary-fixed">child_care</span>
+</div>
+<h3 class="font-button text-[16px] text-on-background mb-1">Kids Church</h3>
+<p class="font-headline-md text-[20px] text-primary mb-4">During Services</p>
+<p class="font-body-md text-[14px] text-on-surface-variant/80 leading-relaxed">
+                            Kids Wing — a safe, fun, age-graded space where kids learn about God through stories and songs.
+                        </p>
+</div>
+</div>
+<div class="mt-16 text-center">
+<a class="inline-block bg-primary-container text-on-primary-container font-button text-button px-8 py-3 rounded hover:bg-primary-container/90 transition-colors" href="#">
+                        Get Directions
+                    </a>
+</div>
+</div>
+</section>
+<!-- Start Your Journey CTA (Editorial style) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="bg-surface-container-low rounded-xl border border-outline-variant/30 p-8 md:p-16 relative overflow-hidden">
+<!-- Decorative background map/pattern implication -->
+<div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 2px 2px, #735c00 1px, transparent 0); background-size: 32px 32px;"></div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div>
+<span class="font-label-caps text-label-caps text-primary tracking-[0.15em] uppercase mb-4 block">Next Steps</span>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-6">Have You Given Your Life to Christ?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant/80 mb-8">
+                            Learn what salvation means and follow our step-by-step Christian journey. Whether you are exploring faith for the first time or looking to recommit your life, we are here to walk with you.
+                        </p>
+<a class="inline-flex items-center gap-2 bg-on-background text-surface-bright font-button text-button px-8 py-3.5 rounded hover:bg-on-background/90 transition-colors" href="#">
+                            Start Here
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-4 mt-8">
+<div class="bg-surface p-6 rounded border border-outline-variant/20 shadow-sm">
+<span class="material-symbols-outlined text-primary mb-3 text-[32px]">favorite</span>
+<h4 class="font-button text-on-background mb-2">1. Believe</h4>
+<p class="text-[13px] text-on-surface-variant/70">Understand God's love and the gift of salvation.</p>
+</div>
+<div class="bg-surface p-6 rounded border border-outline-variant/20 shadow-sm">
+<span class="material-symbols-outlined text-primary mb-3 text-[32px]">water_drop</span>
+<h4 class="font-button text-on-background mb-2">3. Baptism</h4>
+<p class="text-[13px] text-on-surface-variant/70">Publicly declare your new life in Christ.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="bg-surface p-6 rounded border border-outline-variant/20 shadow-sm">
+<span class="material-symbols-outlined text-primary mb-3 text-[32px]">diversity_3</span>
+<h4 class="font-button text-on-background mb-2">2. Belong</h4>
+<p class="text-[13px] text-on-surface-variant/70">Connect with a community of believers.</p>
+</div>
+<div class="bg-surface p-6 rounded border border-outline-variant/20 shadow-sm">
+<span class="material-symbols-outlined text-primary mb-3 text-[32px]">local_fire_department</span>
+<h4 class="font-button text-on-background mb-2">4. Build</h4>
+<p class="text-[13px] text-on-surface-variant/70">Grow in your faith through discipleship.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-on-background dark:bg-surface-container-lowest full-width border-t border-outline/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<!-- Brand Column -->
+<div class="flex flex-col gap-6 md:col-span-1">
+<a class="flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-primary-fixed text-[28px]" style="font-variation-settings: 'FILL' 1;">church</span>
+<span class="font-headline-md text-headline-md text-surface-bright dark:text-on-background font-bold">GracePoint</span>
+</a>
+<p class="font-body-md text-body-md text-tertiary-fixed-dim/80 max-w-xs">
+                    A place to know Christ, grow in faith, and serve others. Join us as we journey together.
+                </p>
+<div class="flex gap-4 mt-2">
+<a class="text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined">play_circle</span>
+</a>
+</div>
+</div>
+<!-- Links Columns -->
+<div class="flex flex-col gap-4">
+<h4 class="font-label-caps text-label-caps text-surface-bright tracking-widest uppercase mb-2">Connect</h4>
+<a class="font-body-md text-body-md text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-colors w-fit opacity-80 hover:opacity-100 transition-all" href="#">Contact</a>
+<a class="font-body-md text-body-md text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-colors w-fit opacity-80 hover:opacity-100 transition-all" href="#">Events</a>
+<a class="font-body-md text-body-md text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-colors w-fit opacity-80 hover:opacity-100 transition-all" href="#">Volunteer</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-caps text-label-caps text-surface-bright tracking-widest uppercase mb-2">Grow</h4>
+<a class="font-body-md text-body-md text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-colors w-fit opacity-80 hover:opacity-100 transition-all" href="#">Sermons</a>
+<a class="font-body-md text-body-md text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-colors w-fit opacity-80 hover:opacity-100 transition-all" href="#">Resources</a>
+<a class="font-body-md text-body-md text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-colors w-fit opacity-80 hover:opacity-100 transition-all" href="#">Growth Journey</a>
+</div>
+<!-- Contact Info -->
+<div class="flex flex-col gap-4">
+<h4 class="font-label-caps text-label-caps text-surface-bright tracking-widest uppercase mb-2">Visit Us</h4>
+<p class="font-body-md text-body-md text-tertiary-fixed-dim/80 flex items-start gap-2">
+<span class="material-symbols-outlined text-[20px] mt-0.5">location_on</span>
+                    1234 Grace Avenue<br/>Sanctuary City, ST 12345
+                </p>
+<p class="font-body-md text-body-md text-tertiary-fixed-dim/80 flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+                    hello@gracepoint.org
+                </p>
+<a class="font-body-md text-body-md text-tertiary-fixed-dim/80 hover:text-primary-fixed transition-colors w-fit opacity-80 hover:opacity-100 transition-all mt-4" href="#">Privacy Policy</a>
+</div>
+</div>
+<!-- Copyright Bottom -->
+<div class="w-full border-t border-outline/10 py-6 px-margin-desktop text-center">
+<p class="font-body-md text-body-md text-tertiary-fixed-dim/50 text-sm">
+                © 2024 GracePoint Ministry Hub. All rights reserved.
+            </p>
+</div>
+</footer>
+</body></html>
