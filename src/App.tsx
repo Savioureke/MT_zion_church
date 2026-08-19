@@ -2,6 +2,8 @@ import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import AudioPlayer from './components/AudioPlayer'
+import PWAInstallPrompt from './components/PWAInstallPrompt'
+import OfflineIndicator from './components/OfflineIndicator'
 import Home from './pages/Home'
 import About from './pages/About'
 import Sermons from './pages/Sermons'
@@ -19,7 +21,8 @@ import Admin from './pages/Admin'
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      <OfflineIndicator />
       <Routes>
         <Route path="/admin" element={<Admin />} />
         <Route
@@ -50,6 +53,7 @@ export default function App() {
           }
         />
       </Routes>
+      <PWAInstallPrompt />
     </div>
   )
 }

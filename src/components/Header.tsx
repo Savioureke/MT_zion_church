@@ -13,6 +13,7 @@ const navLinks = [
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [installPrompt, setInstallPrompt] = useState<any>(null)
   const location = useLocation()
 
   useEffect(() => {
@@ -22,8 +23,27 @@ export default function Header() {
   }, [])
 
   useEffect(() => {
+    const handleInstallPrompt = (e: Event) => {
+      e.preventDefault()
+      setInstallPrompt(e)
+    }
+    window.addEventListener('beforeinstallprompt', handleInstallPrompt)
+    return () => window.removeEventListener('beforeinstallprompt', handleInstallPrompt)
+  }, [])
+
+  useEffect(() => {
     setMobileOpen(false)
   }, [location.pathname])
+
+  const triggerInstall = async () => {
+    if (installPrompt) {
+      installPrompt.prompt()
+      const { outcome } = await installPrompt.userChoice
+      if (outcome === 'accepted') {
+        setInstallPrompt(null)
+      }
+    }
+  }
 
   return (
     <header
@@ -67,12 +87,22 @@ export default function Header() {
             Give Your Life to Christ
           </Link>
           <div className="flex items-center gap-2 border-l border-outline-variant/30 pl-4 ml-2">
-            <Link to="/events" className="text-on-surface-variant hover:text-primary transition-colors">
+            <Link to="/events" className="text-on-surface-variant hover:text-primary transition-colors" title="Prayer & Events">
               <span className="material-symbols-outlined">volunteer_activism</span>
             </Link>
-            <Link to="/dashboard" className="text-on-surface-variant hover:text-primary transition-colors">
+            <Link to="/dashboard" className="text-on-surface-variant hover:text-primary transition-colors" title="My Account">
               <span className="material-symbols-outlined">account_circle</span>
             </Link>
+            {installPrompt && (
+              <button
+                onClick={triggerInstall}
+                className="flex items-center gap-1.5 bg-primary/10 text-primary text-xs font-button font-medium px-3 py-1.5 rounded-full hover:bg-primary/20 transition-all"
+                title="Install GracePoint App"
+              >
+                <span className="material-symbols-outlined text-base">download</span>
+                <span>Install App</span>
+              </button>
+            )}
           </div>
         </div>
 
@@ -111,6 +141,15 @@ export default function Header() {
               >
                 Give Your Life to Christ
               </Link>
+              {installPrompt && (
+                <button
+                  onClick={triggerInstall}
+                  className="w-full flex items-center justify-center gap-2 bg-primary/10 text-primary font-button text-button px-6 py-3 rounded text-center"
+                >
+                  <span className="material-symbols-outlined">download</span>
+                  Install GracePoint App
+                </button>
+              )}
               <Link to="/dashboard" className="block font-button text-button text-on-surface-variant py-2">
                 My Account
               </Link>
