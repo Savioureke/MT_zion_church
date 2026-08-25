@@ -63,7 +63,7 @@ export default function Dashboard() {
         <div className="bg-surface-container-low border border-outline-variant/30 p-8 md:p-12 rounded-xl max-w-md w-full shadow-lg">
           <div className="text-center mb-8">
             <span className="material-symbols-outlined text-primary text-5xl mb-2">account_circle</span>
-            <h1 className="font-headline-lg text-headline-lg text-on-background">Sign In to GracePoint</h1>
+            <h1 className="font-headline-lg text-headline-lg text-on-background">Sign In to Mt Zion Cheese</h1>
             <p className="font-body-md text-sm text-on-surface-variant mt-2">
               Track your Faith Journey, access saved sermons, and manage downloads.
             </p>

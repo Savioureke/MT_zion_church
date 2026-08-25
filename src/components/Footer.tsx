@@ -6,8 +6,8 @@ export default function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto">
         <div className="flex flex-col gap-6 md:col-span-1">
           <Link to="/" className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary-fixed text-[28px] fill">church</span>
-            <span className="font-headline-md text-headline-md text-surface-bright font-bold">GracePoint</span>
+            <img src="/Kenya Assemblies of God.jpeg" alt="Mt Zion Cheese KAG Logo" className="h-10 w-10 rounded-full object-cover" />
+            <span className="font-headline-md text-headline-md text-surface-bright font-bold">Mt Zion Cheese</span>
           </Link>
           <p className="font-body-md text-body-md text-tertiary-fixed-dim/80 max-w-xs">
             A place to know Christ, grow in faith, and serve others. Join us as we journey together.
@@ -66,7 +66,7 @@ export default function Footer() {
 
       <div className="w-full border-t border-outline/10 py-6 px-margin-desktop text-center">
         <p className="font-body-md text-body-md text-tertiary-fixed-dim/50 text-sm">
-          © 2024 GracePoint Ministry Hub. All rights reserved.
+          © 2024 Mt Zion Cheese KAG. All rights reserved.
         </p>
       </div>
     </footer>

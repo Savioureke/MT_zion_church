@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { supabase, EventItemDB } from '../lib/supabase'
 
 interface EventItem {
   id: string
@@ -15,7 +15,7 @@ const initialEvents: EventItem[] = [
     id: '1',
     title: 'Autumn Community Worship',
     date: 'Sunday, Oct 15 • 10:00 AM',
-    location: 'GracePoint Main Sanctuary',
+    location: 'Mt Zion Cheese Main Sanctuary',
     desc: 'A special morning of unified worship and acoustic melodies celebrating the changing season. All are welcome to join us in the main sanctuary.',
     img: '/images/event_worship.jpg',
   },
@@ -38,11 +38,31 @@ const initialEvents: EventItem[] = [
 ]
 
 export default function Events() {
+  const [dbEvents, setDbEvents] = useState<EventItemDB[]>([])
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [request, setRequest] = useState('')
   const [submitted, setSubmitted] = useState(false)
-  const [salvationChoice, setSalvationChoice] = useState<string | null>(null)
+
+  useEffect(() => {
+    fetchEvents()
+  }, [])
+
+  const fetchEvents = async () => {
+    try {
+      const { data } = await supabase
+        .from('events')
+        .select('*')
+        .eq('published', true)
+        .order('event_date', { ascending: true })
+
+      if (data && data.length > 0) {
+        setDbEvents(data)
+      }
+    } catch (err) {
+      console.error('Error fetching events:', err)
+    }
+  }
 
   const handlePrayerSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -57,219 +77,120 @@ export default function Events() {
     }
     const existing = JSON.parse(localStorage.getItem('prayer_requests') || '[]')
     localStorage.setItem('prayer_requests', JSON.stringify([newReq, ...existing]))
+    
+    // Save to Supabase if possible
+    supabase.from('prayer_requests').insert({ name: newReq.name, email: newReq.email, request: newReq.request }).then(() => {})
+
     setSubmitted(true)
     setName('')
     setEmail('')
     setRequest('')
   }
 
-  const handleSalvationResponse = (choice: string) => {
-    setSalvationChoice(choice)
-    const existing = JSON.parse(localStorage.getItem('salvation_responses') || '[]')
-    const newResp = {
-      id: Date.now().toString(),
-      choice,
-      date: new Date().toLocaleString(),
-    }
-    localStorage.setItem('salvation_responses', JSON.stringify([newResp, ...existing]))
-  }
+  const dynamicItems = dbEvents.map((e) => ({
+    id: e.id || Math.random().toString(),
+    title: e.title,
+    date: new Date(e.event_date).toLocaleString([], { dateStyle: 'full', timeStyle: 'short' }),
+    location: e.location || 'Mt Zion Cheese',
+    desc: e.description,
+    img: e.image_url || '/images/event_worship.jpg'
+  }))
 
-  const downloadICS = (ev: EventItem) => {
-    const icsData = `BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//GracePoint Ministry Hub//NONSGML Event//EN
-BEGIN:VEVENT
-SUMMARY:${ev.title}
-DESCRIPTION:${ev.desc}
-LOCATION:${ev.location}
-END:VEVENT
-END:VCALENDAR`
-    const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' })
-    const link = document.createElement('a')
-    link.href = window.URL.createObjectURL(blob)
-    link.setAttribute('download', `${ev.title.replace(/\s+/g, '_')}.ics`)
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }
+  const allEvents = [...dynamicItems, ...initialEvents]
 
   return (
     <div className="min-h-screen flex flex-col pb-24">
       <main className="flex-grow">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-section-gap">
           <div className="mb-16 md:w-8/12">
-            <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-4">
+            <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-4 font-bold">
               Upcoming Events & Prayer
             </h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant">
-              Join our community in worship, fellowship, and service. Discover what's happening at GracePoint this season
+              Join our community in worship, fellowship, and service. Discover what's happening at Mt Zion Cheese this season
               and connect with us in prayer.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
-            {/* Events List (Cols 1-8) */}
-            <div className="md:col-span-8 flex flex-col gap-12">
-              {initialEvents.map((ev) => (
-                <article
-                  key={ev.id}
-                  className="bg-surface-container-low border border-outline-variant/20 rounded-xl overflow-hidden flex flex-col sm:flex-row group transition-colors hover:border-outline-variant/40"
-                >
-                  <div className="sm:w-2/5 aspect-[4/3] sm:aspect-auto sm:h-full relative overflow-hidden bg-surface-container-high">
-                    <img
-                      src={ev.img}
-                      alt={ev.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                  </div>
-                  <div className="p-6 sm:p-8 sm:w-3/5 flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center gap-2 text-primary mb-3">
-                        <span className="material-symbols-outlined text-sm">calendar_today</span>
-                        <span className="font-label-caps text-label-caps uppercase tracking-wider">{ev.date}</span>
+            {/* Events List */}
+            <div className="md:col-span-8 space-y-8">
+              <h2 className="font-headline-lg text-xl font-bold text-on-background">Event Schedule</h2>
+              <div className="space-y-6">
+                {allEvents.map((ev) => (
+                  <div key={ev.id + ev.title} className="bg-surface-container-lowest border border-outline-variant/20 rounded-xl overflow-hidden shadow-sm flex flex-col sm:flex-row">
+                    <div className="sm:w-1/3 h-48 sm:h-auto relative bg-surface-variant">
+                      <img src={ev.img} alt={ev.title} className="w-full h-full object-cover" />
+                    </div>
+                    <div className="sm:w-2/3 p-6 flex flex-col justify-between">
+                      <div>
+                        <span className="font-label-caps text-xs text-primary font-bold uppercase">{ev.date}</span>
+                        <h3 className="font-headline-md text-lg font-bold text-on-background mt-1 mb-2">{ev.title}</h3>
+                        <p className="font-body-md text-xs text-on-surface-variant mb-4">{ev.desc}</p>
                       </div>
-                      <h2 className="font-headline-md text-headline-md text-on-background mb-3">{ev.title}</h2>
-                      <p className="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">{ev.desc}</p>
-                      <div className="flex items-center gap-2 text-on-surface-variant/80 mb-6">
-                        <span className="material-symbols-outlined text-sm">location_on</span>
-                        <span className="font-body-md text-body-md text-sm">{ev.location}</span>
+                      <div className="flex items-center gap-2 text-xs text-on-surface font-semibold pt-3 border-t border-outline-variant/20">
+                        <span className="material-symbols-outlined text-sm text-primary">location_on</span>
+                        <span>{ev.location}</span>
                       </div>
                     </div>
-                    <div className="flex flex-wrap items-center gap-4">
-                      <Link
-                        to="/contact"
-                        className="font-button text-button bg-primary text-on-primary px-6 py-2.5 rounded transition-opacity hover:opacity-90"
-                      >
-                        View Event
-                      </Link>
-                      <button
-                        onClick={() => downloadICS(ev)}
-                        className="font-button text-button text-on-background border border-on-background/20 px-6 py-2.5 rounded transition-colors hover:bg-surface-container-high flex items-center gap-1"
-                      >
-                        <span className="material-symbols-outlined text-sm">event</span> Add to Calendar
-                      </button>
-                    </div>
                   </div>
-                </article>
-              ))}
-
-              {/* Salvation Decision Banner */}
-              <div className="bg-primary text-on-primary rounded-xl p-8 md:p-10 border border-primary-container/30 mt-6">
-                <span className="font-label-caps text-label-caps text-primary-fixed uppercase tracking-widest block mb-2">
-                  Spiritual Decision
-                </span>
-                <h3 className="font-headline-lg text-headline-lg text-surface-bright mb-4">
-                  Have You Given Your Life to Christ?
-                </h3>
-                <p className="font-body-md text-body-md text-on-primary/90 mb-6 max-w-xl">
-                  Making a decision to follow Jesus Christ is the single most important step in your life. We are here to guide and support you.
-                </p>
-
-                {salvationChoice ? (
-                  <div className="bg-surface-lowest/10 backdrop-blur-md p-4 rounded text-surface-bright border border-surface-bright/30">
-                    <p className="font-button text-button flex items-center gap-2">
-                      <span className="material-symbols-outlined text-primary-fixed">check_circle</span>
-                      Thank you for sharing! Option selected: "{salvationChoice}". We'll walk with you step by step.
-                    </p>
-                    <Link to="/salvation" className="inline-block mt-3 font-button text-sm text-primary-fixed hover:underline">
-                      Continue to 7-Step Salvation Journey →
-                    </Link>
-                  </div>
-                ) : (
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <button
-                      onClick={() => handleSalvationResponse("Yes — I've accepted Christ")}
-                      className="bg-primary-container text-on-primary-container font-button text-button px-6 py-3 rounded hover:bg-primary-container/90 transition-colors flex items-center justify-center gap-2"
-                    >
-                      <span className="material-symbols-outlined text-sm">favorite</span>
-                      YES — I'VE ACCEPTED CHRIST
-                    </button>
-                    <Link
-                      to="/salvation"
-                      className="bg-transparent border border-surface-bright text-surface-bright font-button text-button px-6 py-3 rounded hover:bg-surface-bright/10 transition-colors text-center"
-                    >
-                      I WANT TO LEARN MORE
-                    </Link>
-                  </div>
-                )}
+                ))}
               </div>
             </div>
 
-            {/* Prayer Requests Sidebar (Cols 9-12) */}
-            <div className="md:col-span-4 mt-12 md:mt-0">
-              <div className="bg-surface-container-high rounded-xl p-8 sticky top-32 border border-outline-variant/20">
-                <div className="mb-6">
-                  <h3 className="font-headline-md text-headline-md text-on-background mb-2">Need Prayer?</h3>
-                  <p className="font-body-md text-body-md text-on-surface-variant text-sm">
-                    Submit your request so our pastoral team and prayer community can stand with you in prayer.
-                  </p>
-                </div>
+            {/* Prayer Request Form */}
+            <div className="md:col-span-4 bg-surface-container-low border border-outline-variant/30 rounded-xl p-6 shadow-sm sticky top-24">
+              <h3 className="font-headline-md text-lg font-bold text-on-background mb-2">Submit Prayer Request</h3>
+              <p className="text-xs text-on-surface-variant mb-6">Our pastoral and intercessory prayer team prays over every request received.</p>
 
-                {submitted ? (
-                  <div className="bg-surface-container-lowest p-6 rounded text-center border border-primary/30 space-y-3">
-                    <span className="material-symbols-outlined text-primary text-4xl">check_circle</span>
-                    <h4 className="font-headline-md text-headline-md text-on-background">Prayer Request Submitted</h4>
-                    <p className="font-body-md text-sm text-on-surface-variant">
-                      Your prayer request has been received. Our team will be praying for you.
-                    </p>
-                    <button
-                      onClick={() => setSubmitted(false)}
-                      className="font-button text-sm text-primary hover:underline block mx-auto pt-2"
-                    >
-                      Submit Another Request
-                    </button>
+              {submitted ? (
+                <div className="p-4 bg-primary/10 border border-primary/20 rounded-lg text-center text-xs text-primary space-y-2">
+                  <span className="material-symbols-outlined text-3xl">check_circle</span>
+                  <p className="font-bold">Prayer Request Received!</p>
+                  <p>Our ministry team will pray for your request.</p>
+                  <button onClick={() => setSubmitted(false)} className="underline text-[11px] font-button mt-2">Submit Another Request</button>
+                </div>
+              ) : (
+                <form onSubmit={handlePrayerSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-button text-on-surface-variant mb-1">Your Name (Optional)</label>
+                    <input
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="John Doe"
+                      className="w-full bg-surface border border-outline-variant/40 rounded p-2.5 text-xs focus:border-primary outline-none"
+                    />
                   </div>
-                ) : (
-                  <form onSubmit={handlePrayerSubmit} className="flex flex-col gap-5">
-                    <div className="flex flex-col">
-                      <label className="font-label-caps text-label-caps text-on-surface-variant mb-1" htmlFor="name">
-                        Full Name
-                      </label>
-                      <input
-                        id="name"
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="Jane Doe"
-                        className="bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-body-md text-on-background placeholder:text-on-surface-variant/40 transition-colors"
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <label className="font-label-caps text-label-caps text-on-surface-variant mb-1" htmlFor="email">
-                        Email / Phone
-                      </label>
-                      <input
-                        id="email"
-                        type="text"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="jane@example.com"
-                        className="bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-body-md text-on-background placeholder:text-on-surface-variant/40 transition-colors"
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <label className="font-label-caps text-label-caps text-on-surface-variant mb-1" htmlFor="request">
-                        Prayer Request
-                      </label>
-                      <textarea
-                        id="request"
-                        rows={4}
-                        required
-                        value={request}
-                        onChange={(e) => setRequest(e.target.value)}
-                        placeholder="Share what is on your heart..."
-                        className="bg-surface-container-low border border-outline-variant/30 focus:border-primary focus:ring-0 rounded p-3 font-body-md text-body-md text-on-background placeholder:text-on-surface-variant/40 mt-2 resize-none"
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      className="font-button text-button bg-primary text-on-primary w-full py-3 rounded transition-opacity hover:opacity-90 mt-2"
-                    >
-                      Submit Prayer Request
-                    </button>
-                  </form>
-                )}
-              </div>
+                  <div>
+                    <label className="block text-xs font-button text-on-surface-variant mb-1">Your Email (Optional)</label>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="john@example.com"
+                      className="w-full bg-surface border border-outline-variant/40 rounded p-2.5 text-xs focus:border-primary outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-button text-on-surface-variant mb-1">Prayer Request *</label>
+                    <textarea
+                      rows={4}
+                      required
+                      value={request}
+                      onChange={(e) => setRequest(e.target.value)}
+                      placeholder="How can we stand in prayer with you today?"
+                      className="w-full bg-surface border border-outline-variant/40 rounded p-2.5 text-xs focus:border-primary outline-none"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full bg-primary text-on-primary font-button py-2.5 rounded-lg text-xs font-semibold shadow hover:bg-primary/90 transition-colors"
+                  >
+                    Submit Request
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>

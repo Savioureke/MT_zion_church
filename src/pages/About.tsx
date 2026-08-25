@@ -9,7 +9,7 @@ export default function About() {
           Rooted in Faith, Growing Together
         </h1>
         <p className="font-body-lg text-body-lg text-on-surface-variant">
-          GracePoint is more than a church building — it's a family of believers committed to knowing Christ and making
+          Mt Zion Cheese is more than a church building — it's a family of believers committed to knowing Christ and making
           Him known.
         </p>
       </div>
@@ -28,7 +28,7 @@ export default function About() {
             We exist to glorify God by making disciples who love God, love people, and live on mission.
           </p>
           <p className="font-body-md text-body-md text-on-surface-variant">
-            At GracePoint, we believe the church is not a building but a people. We are a diverse community of believers
+            At Mt Zion Cheese, we believe the church is not a building but a people. We are a diverse community of believers
             united by our faith in Jesus Christ. Whether you're exploring Christianity for the first time or looking
             for a church home, we welcome you exactly as you are.
           </p>
@@ -89,7 +89,7 @@ export default function About() {
       <div className="bg-on-background rounded-xl p-8 md:p-16 text-center relative overflow-hidden">
         <h2 className="font-headline-lg text-headline-lg text-surface-bright mb-4">Join Us This Sunday</h2>
         <p className="font-body-lg text-body-lg text-surface-variant/80 mb-8 max-w-xl mx-auto">
-          We'd love to meet you. Come as you are — there's a place for you at GracePoint.
+          We'd love to meet you. Come as you are — there's a place for you at Mt Zion Cheese.
         </p>
         <Link to="/contact" className="inline-block bg-primary-container text-on-primary-container font-button text-button px-8 py-3 rounded hover:bg-primary-container/90 transition-colors">
           Plan Your Visit

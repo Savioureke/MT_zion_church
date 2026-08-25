@@ -33,7 +33,7 @@ export default function Contact() {
               <span className="material-symbols-outlined text-primary text-5xl">mark_email_read</span>
               <h3 className="font-headline-md text-headline-md text-on-background">Message Sent!</h3>
               <p className="font-body-md text-on-surface-variant">
-                Thank you for reaching out to GracePoint Ministry Hub. We have received your message and will respond shortly.
+                Thank you for reaching out to Mt Zion Cheese KAG. We have received your message and will respond shortly.
               </p>
               <button
                 onClick={() => {
@@ -160,7 +160,7 @@ export default function Contact() {
               <img src="/images/hero_sunset.jpg" alt="Map" className="w-full h-full object-cover opacity-50" />
               <div className="absolute inset-0 bg-on-background/30 flex flex-col items-center justify-center text-white">
                 <span className="material-symbols-outlined text-4xl text-primary-fixed">church</span>
-                <span className="font-button text-sm mt-1">GracePoint Sanctuary City</span>
+                <span className="font-button text-sm mt-1">Mt Zion Cheese</span>
               </div>
             </div>
           </div>

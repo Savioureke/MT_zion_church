@@ -33,14 +33,14 @@ export default function OfflineIndicator() {
       {isOffline && (
         <div className="pointer-events-auto bg-amber-600 text-white text-xs font-medium px-4 py-2 rounded-full shadow-lg flex items-center gap-2 animate-bounce-short">
           <span className="material-symbols-outlined text-sm">wifi_off</span>
-          <span>You are offline — GracePoint Hub is serving cached content for all sections.</span>
+          <span>You are offline — Mt Zion Cheese is serving cached content for all sections.</span>
         </div>
       )}
 
       {showRestored && (
         <div className="pointer-events-auto bg-emerald-600 text-white text-xs font-medium px-4 py-2 rounded-full shadow-lg flex items-center gap-2 animate-fade-in">
           <span className="material-symbols-outlined text-sm">wifi</span>
-          <span>Connection restored — GracePoint Hub is online.</span>
+          <span>Connection restored — Mt Zion Cheese is online.</span>
         </div>
       )}
     </div>

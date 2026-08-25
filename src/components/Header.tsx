@@ -53,8 +53,8 @@ export default function Header() {
     >
       <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
         <Link to="/" className="flex items-center gap-2 group">
-          <span className="material-symbols-outlined text-primary text-[28px] fill">church</span>
-          <span className="font-headline-md text-headline-md font-bold text-primary">GracePoint Hub</span>
+          <img src="/Kenya Assemblies of God.jpeg" alt="Mt Zion Cheese KAG Logo" className="h-10 w-10 rounded-full object-cover" />
+          <span className="font-headline-md text-headline-md font-bold text-primary">Mt Zion Cheese</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-6">
@@ -97,7 +97,7 @@ export default function Header() {
               <button
                 onClick={triggerInstall}
                 className="flex items-center gap-1.5 bg-primary/10 text-primary text-xs font-button font-medium px-3 py-1.5 rounded-full hover:bg-primary/20 transition-all"
-                title="Install GracePoint App"
+                title="Install Mt Zion Cheese App"
               >
                 <span className="material-symbols-outlined text-base">download</span>
                 <span>Install App</span>
@@ -147,7 +147,7 @@ export default function Header() {
                   className="w-full flex items-center justify-center gap-2 bg-primary/10 text-primary font-button text-button px-6 py-3 rounded text-center"
                 >
                   <span className="material-symbols-outlined">download</span>
-                  Install GracePoint App
+                  Install Mt Zion Cheese App
                 </button>
               )}
               <Link to="/dashboard" className="block font-button text-button text-on-surface-variant py-2">

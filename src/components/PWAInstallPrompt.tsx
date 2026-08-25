@@ -32,7 +32,7 @@ export default function PWAInstallPrompt() {
       setIsInstalled(true)
       setShowPrompt(false)
       setDeferredPrompt(null)
-      console.log('GracePoint Hub PWA installed successfully')
+      console.log('Mt Zion Cheese PWA installed successfully')
     }
 
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
@@ -74,11 +74,11 @@ export default function PWAInstallPrompt() {
       <div className="bg-surface-container-highest border border-primary/20 rounded-xl p-4 shadow-2xl backdrop-blur-md flex flex-col gap-3">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center shadow-inner flex-shrink-0">
-              <span className="material-symbols-outlined text-[28px]">church</span>
+            <div className="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center shadow-inner flex-shrink-0 overflow-hidden">
+              <img src="/Kenya Assemblies of God.jpeg" alt="Mt Zion Cheese Logo" className="w-full h-full object-cover" />
             </div>
             <div>
-              <h4 className="font-headline-sm font-bold text-on-surface text-base">Install GracePoint Hub</h4>
+              <h4 className="font-headline-sm font-bold text-on-surface text-base">Install Mt Zion Cheese</h4>
               <p className="text-xs text-on-surface-variant leading-snug mt-0.5">
                 Install as an app for fast offline access to sermons, devotionals & growth guides.
               </p>
